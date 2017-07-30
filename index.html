@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport"
+	  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Photo Layout Editor for React</title>
+<link rel="stylesheet" href="./build/PhotoLayoutEditor.pack.css">
+<style>
+body {margin: 0; font-family: sans-serif;}
+
+/* control */
+.api-control {margin: 30px 15px 0; border-top: 1px solid #999;}
+.api-control > h1 {font-size: 20px; color: #222; margin: 0 0 5px; padding: 0 0 0 5px;}
+.api-control nav {font-size: 14px; padding: 3px 10px; background: #f1f1f1;}
+.api-control nav p {margin: 8px 0;}
+.api-control nav button {
+	padding: 8px 12px; margin: 0 5px 4px 0;
+	font-family: 'Helvetica', Arial, sans-serif; font-size: 11px; color: #fff; font-weight: 400;
+	border: none; text-transform: uppercase; cursor: pointer; background: #999;
+}
+.api-control > section {margin: 20px 0;}
+
+/* make image */
+#makeImageArea {margin: 0; padding: 15px; min-height: 100px; border: 1px dashed #20B292;}
+#makeImageArea canvas,
+#makeImageArea img {
+	display: block; margin: 0 auto; border: 1px solid rgba(0,0,0,.05);
+}
+</style>
+</head>
+<body>
+<main>
+	<div id="app"></div>
+
+	<article class="api-control">
+		<section>
+			<h1>Side</h1>
+			<nav>
+				<p>
+					<button type="button" onclick="action('side.add')">add files</button>
+					<button type="button" onclick="action('side.selectedRemoveItems')">remove items</button>
+					<button type="button" onclick="action('side.clear')">clear</button>
+					<button type="button" onclick="action('side.attachToGrid')">attach to grid</button>
+					<button type="button" onclick="action('side.selection')">selection</button>
+					<button type="button" onclick="action('side.select')">select</button>
+					<button type="button" onclick="action('side.toggleSelectAll')">toggle select all</button>
+					<button type="button" onclick="action('side.getItems')">get items</button>
+					<button type="button" onclick="action('side.getImages')">get images</button>
+				</p>
+				<p>
+					<label>
+						<strong>upload image</strong><br/>
+						<input type="file" multiple onchange="action('side.upload', this)"/>
+					</label>
+				</p>
+			</nav>
+		</section>
+		<section>
+			<h1>Grid</h1>
+			<nav>
+				<p>
+					<button type="button" onclick="action('grid.getKeys')">get keys</button>
+					<button type="button" onclick="action('grid.getBlocks')">get blocks</button>
+					<button type="button" onclick="action('grid.getPreference')">get preference</button>
+					<button type="button" onclick="action('grid.setPreference')">set preference</button>
+					<button type="button" onclick="action('grid.update')">update</button>
+					<button type="button" onclick="action('grid.add')">add</button>
+					<button type="button" onclick="action('grid.remove')">remove</button>
+					<button type="button" onclick="action('grid.shuffle')">shuffle</button>
+					<button type="button" onclick="action('grid.assignImages')">assign images</button>
+					<button type="button" onclick="action('grid.assignImage')">assign image</button>
+					<button type="button" onclick="action('grid.duplicate')">duplicate</button>
+					<button type="button" onclick="action('grid.select')">select</button>
+					<button type="button" onclick="action('grid.unselect')">unselect</button>
+					<button type="button" onclick="action('grid.toggleSelectAll')">toggle select all</button>
+				</p>
+			</nav>
+		</section>
+		<section>
+			<h1>Util</h1>
+			<nav>
+				<p>
+					<button type="button" onclick="action('util.toggleSide')">Toggle side</button>
+				</p>
+				<p>
+					<button type="button" onclick="action('util.export.side')">Export(side)</button>
+					<button type="button" onclick="action('util.export.grid')">Export(grid)</button>
+					<button type="button" onclick="action('util.export.preference')">Export(preference)</button>
+					<button type="button" onclick="action('util.export.all')">Export(all)</button>
+					<button type="button" onclick="action('util.makeImage')">Make image</button>
+				</p>
+				<p>
+					<button type="button" onclick="action('util.import.side')">Import(side)</button>
+					<button type="button" onclick="action('util.import.grid')">Import(grid)</button>
+					<button type="button" onclick="action('util.import.preference')">Import(preference)</button>
+					<button type="button" onclick="action('util.import.all')">Import(all)</button>
+				</p>
+			</nav>
+		</section>
+		<section>
+			<h1>Make image area</h1>
+			<figure id="makeImageArea"></figure>
+		</section>
+	</article>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+<script src="./build/PhotoLayoutEditor.vendor.pack.js"></script>
+<script src="./build/PhotoLayoutEditor.pack.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
