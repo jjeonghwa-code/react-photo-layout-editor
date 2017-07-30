@@ -76,7 +76,7 @@ function action(id, value)
 			ple.api.side.add(pickImages(3));
 			break;
 		case 'side.selection':
-			ple.api.side.selection([2, 4, 6]);
+			ple.api.side.selection([1, 3, 5, 7]);
 			break;
 		case 'side.select':
 			ple.api.side.select({
