@@ -24,6 +24,9 @@ ReactDOM.render(
 				'http://goose.redgoose.me/data/upload/original/201507/rg3310.jpg',
 				'http://goose.redgoose.me/data/upload/original/201503/ce88b697650b8cba1c11d1abc2976263.jpg',
 			]
+		},
+		updateStoreFunc: function() {
+			console.warn('update store');
 		}
 	}),
 	document.getElementById('app')
